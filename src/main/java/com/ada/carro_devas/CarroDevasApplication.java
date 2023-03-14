@@ -19,7 +19,7 @@ public class CarroDevasApplication {
 
         // Quando: ligar o carro e acelerar
         carroService01.ligar(carro01);
-        carroService01.acelerar(carro01);
+        carroService01.acelerar(carro01,10);
 
         // Então: velocidadeAtual = 10
         System.out.println(carro01.getVelocidadeAtual() == 10); //deve imprimir true
@@ -34,7 +34,7 @@ public class CarroDevasApplication {
         Carro carro02 = new Carro();
 
         // Quando: acelerar carro
-        carroService02.acelerar(carro02);
+        carroService02.acelerar(carro02,20);
 
         // Então: velocidadeAtual = 0
         System.out.println(carro02.getVelocidadeAtual() == 0); //deve imprimir true, pois o carro ta desligado
@@ -68,7 +68,7 @@ public class CarroDevasApplication {
         carro2.setVelocidadeAtual(100);
 
         // Quando: acelerar carro
-        carroService2.acelerar(carro2);
+        carroService2.acelerar(carro2,10);
 
         // Então: nao acelerar e informar que nao pode acelerar, pois o veiculo ja esta na velocidadeMaxima
         System.out.println(carro2.getVelocidadeAtual() <= 100); //deve imprimir true
@@ -83,7 +83,7 @@ public class CarroDevasApplication {
         Carro carro3 = new Carro();
 
         // Quando: acelerar e frear carro
-        carroService3.acelerar(carro3);
+        carroService3.acelerar(carro3,20);
         carroService3.frear(carro3);
 
         // Então: Nao acelerar e nem frear, ou seja, velAtual = 0, informando que o veiculo está desligado

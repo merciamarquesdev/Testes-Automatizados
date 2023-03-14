@@ -11,6 +11,7 @@ public class Carro {
         this.velocidadeAtual = 0;
     }
 
+    // Os testes mostram a presenca de erros e nao sua ausencia
     public Carro(String cor, String marca, int ano) {
         this.cor = cor;
         this.marca = marca;
