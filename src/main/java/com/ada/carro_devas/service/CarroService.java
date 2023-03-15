@@ -3,10 +3,12 @@ import com.ada.carro_devas.model.Carro;
 
 public class CarroService {
         public void acelerar(Carro carro, int velocidade){
-                if (carro.isLigado() && (carro.getVelocidadeAtual()+velocidade) <= 100 && carro.getVelocidadeAtual() >= 0){
+                if (carro.isLigado()
+                        && (carro.getVelocidadeAtual()+velocidade) <= carro.getVelocidadeMaxima()
+                        && carro.getVelocidadeAtual() >= 0){
                         carro.setVelocidadeAtual(carro.getVelocidadeAtual()+velocidade);
                 }
-                else if (carro.isLigado() == false){
+                else if ( carro.isLigado() == false){
                         System.out.println("Erro: Não é possível acelerar, pois o veículo está desligado.");
                 }
                 else {
@@ -14,9 +16,10 @@ public class CarroService {
                 }
 
         }
-        public void frear(Carro carro){
-                if (carro.isLigado() && carro.getVelocidadeAtual() >= 10){
-                        carro.setVelocidadeAtual(carro.getVelocidadeAtual()-10);
+        public void frear(Carro carro, int velocidade){
+                if (carro.isLigado()
+                        && carro.getVelocidadeAtual() - velocidade >= velocidade){
+                        carro.setVelocidadeAtual(carro.getVelocidadeAtual()-velocidade);
                 }
                 else if (carro.isLigado() == false){
                         System.out.println("Erro: Não é possível frear, pois o veículo está desligado.");

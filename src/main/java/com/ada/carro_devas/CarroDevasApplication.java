@@ -84,7 +84,7 @@ public class CarroDevasApplication {
 
         // Quando: acelerar e frear carro
         carroService3.acelerar(carro3,20);
-        carroService3.frear(carro3);
+        carroService3.frear(carro3,10);
 
         // Então: Nao acelerar e nem frear, ou seja, velAtual = 0, informando que o veiculo está desligado
         System.out.println(carro3.getVelocidadeAtual() == 0); //deve imprimir true
@@ -101,7 +101,7 @@ public class CarroDevasApplication {
         carro4.setVelocidadeAtual(8);
 
         // Quando: frear carro
-        carroService4.frear(carro4);
+        carroService4.frear(carro4,15);
 
         // Então: velocidade atual = 0, pois nao pode haver velocidade negativa
         System.out.println(carro4.getVelocidadeAtual() == 0); //deve imprimir true

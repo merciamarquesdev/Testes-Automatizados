@@ -6,9 +6,12 @@ public class Carro {
     private int ano;
     private boolean ligado;
     private int velocidadeAtual;
+    private int velocidadeMaxima;
+
     public Carro(){
         this.ligado = false;
         this.velocidadeAtual = 0;
+        this.velocidadeMaxima = 100;
     }
 
     // Os testes mostram a presenca de erros e nao sua ausencia
@@ -18,6 +21,7 @@ public class Carro {
         this.ano = ano;
         this.ligado = false;
         this.velocidadeAtual = 0;
+        this.velocidadeMaxima = 100;
     }
 
     public String getCor() {
@@ -60,6 +64,14 @@ public class Carro {
         this.velocidadeAtual = velocidadeAtual;
     }
 
+    public int getVelocidadeMaxima() {
+        return velocidadeMaxima;
+    }
+
+    public void setVelocidadeMaxima(int velocidadeMaxima) {
+        this.velocidadeMaxima = velocidadeMaxima;
+    }
+
     @Override
     public String toString() {
         return "Carro{" +
@@ -68,6 +80,7 @@ public class Carro {
                 ", ano=" + ano +
                 ", ligado=" + ligado +
                 ", velocidadeAtual=" + velocidadeAtual +
+                ", velocidadeMaxima=" + velocidadeMaxima +
                 '}';
     }
 }

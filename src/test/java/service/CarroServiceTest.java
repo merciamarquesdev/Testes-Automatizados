@@ -38,5 +38,60 @@ public class CarroServiceTest {
         Assert.assertTrue(carro.isLigado());
     }
 
+    @Test
+    public void carroEmMovimentoNaoPodeSerDesligado() {
+//        - Given: Um carro ligado; Um carro andando
+        CarroService carroService = new CarroService();
+        Carro carro = new Carro();
+        carroService.ligar(carro);
+        carroService.acelerar(carro, 10);
+//        - When: Carro desligar
+        carroService.desligar(carro);
+//        - Then: Carro deve permanecer ligado
+        Assert.assertTrue(carro.isLigado());
+    }
+
+    @Test
+    public void carroNaoPodeUltrapassarVelocidadeMaxima() {
+//        - Given: Um carro ligado, Um carro andando na velocidade máxima
+        CarroService carroService = new CarroService();
+        Carro carro = new Carro();
+        carroService.ligar(carro);
+        carro.setVelocidadeAtual(carro.getVelocidadeMaxima());
+//        - When: Acelerar o carro
+        carroService.acelerar(carro, 10);
+//        - Then: Carro deve permanecer na velocidade máxima
+        Assert.assertEquals(carro.getVelocidadeMaxima(), carro.getVelocidadeAtual());
+    }
+
+    @Test
+    public void carroDesligadoNaoPodeAcelerar() {
+        // Given: um carro desligado
+        CarroService carroService = new CarroService();
+        Carro carro = new Carro();
+
+        // When: acelerar e frear carro
+        carroService.acelerar(carro,20);
+
+        // Then: Nao acelerar e nem frear, ou seja, velAtual = 0
+//        Assert.assertFalse(carro.getLigado());
+        int velocidadeParada = 0;
+        Assert.assertEquals(velocidadeParada, carro.getVelocidadeAtual());
+    }
+
+    @Test
+    public void carroDesligadoNaoPodeFrear() {
+        // Given: um carro desligado
+        CarroService carroService = new CarroService();
+        Carro carro = new Carro();
+
+        // When: acelerar e frear carro
+        carroService.frear(carro, 10);
+
+        // Then: Nao acelerar e nem frear, ou seja, velAtual = 0
+        int velocidadeParada = 0;
+        Assert.assertEquals(velocidadeParada, carro.getVelocidadeAtual());
+    }
+
 
 }

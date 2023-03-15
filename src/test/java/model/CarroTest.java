@@ -11,7 +11,7 @@ public class CarroTest {
         // Given
         Carro carro = new Carro();
 
-        // Then
+        // Then - Asserts
         Assert.assertFalse(carro.isLigado());
     }
 }
