@@ -1,5 +1,7 @@
 package com.ada.carro_devas.model;
 
+import java.util.Objects;
+
 public class Carro {
     private String cor;
     private String marca;
@@ -12,6 +14,10 @@ public class Carro {
         this.ligado = false;
         this.velocidadeAtual = 0;
         this.velocidadeMaxima = 100;
+    }
+
+    public Carro(String marca){
+        this.marca = marca;
     }
 
     // Os testes mostram a presenca de erros e nao sua ausencia
@@ -82,5 +88,18 @@ public class Carro {
                 ", velocidadeAtual=" + velocidadeAtual +
                 ", velocidadeMaxima=" + velocidadeMaxima +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Carro carro = (Carro) o;
+        return marca.equals(carro.marca);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(marca);
     }
 }
